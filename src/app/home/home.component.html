@@ -1,0 +1,129 @@
+<div class= " w-screen h-auto py-20  bg-cover bg-[url('assets/images/night.jpg')] flex flex-col  items-center justify-center">
+  <h3 class="text-white mb-10 font-semibold text-xl w-6/12 md:w-auto md:text-2xl">
+    Gorgeous Free Images and Royalty-Free Photos
+  </h3>
+
+  <div class="text-white w-11/12 md:w-6/12 ">
+    <div class="w-full flex justify-between">
+      <input placeholder="Search" type="search" class="text-black p-2 ring-2 md:ring-4 ring-blue-100 w-10/12  rounded-tl-md rounded-bl-md" [(ngModel)]="searchTerm">
+      <button  class=" ring-2 md:ring-4 ring-indigo-300 bg-blue-500 py-2 px-3" (click)="onSerch()">Go</button>
+      <button (click)="openMore()" class=" border-solid border-white border-2 py-2 px-3 text-sm ml-2"><fa-icon class="pointer-events-none" [icon]="faPlus"></fa-icon></button>
+    </div>
+
+    <div class="justify-around p-2 w-full bg-gray-900 bg-opacity-80  rounded-b-xl" [ngClass]="{'hidden':!more, 'flex':more}">
+        <div class="md:w-1/2 flex flex-col ">
+          <div>
+            <h5 class="mb-2 text-md md:text-xl font-semibold">Orientation</h5>
+            <p class="flex items-center mb-2">
+              <input type="radio"  class="w-5 h-5 mr-1"  checked  [(ngModel)]="orientation" value="all">
+              <label>All</label>
+            </p>
+
+            <p class="flex items-center mb-2">
+              <input type="radio" name="horizontal" class="w-5 h-5 mr-1" [(ngModel)]="orientation" value="horizontal">
+              <label>Horizontal</label>
+            </p>
+
+            <p class="flex items-center mb-2">
+              <input type="radio" name="vertical" class="w-5 h-5 mr-1" [(ngModel)]="orientation" value="vertical">
+              <label >Vertical</label>
+            </p>
+          </div>
+          <div>
+            <h5 class="mb-2 text-md md:text-xl font-semibold">Color</h5>
+            <p class="w-3/5">
+              <input type="radio" name="color" checked class="custom-radio  mx-1 text-white" [(ngModel)]="color" value="white">
+              <input type="radio" name="color" class="custom-radio  mx-1 text-red-600" [(ngModel)]="color" value="red" >
+              <input type="radio" name="color" class="custom-radio  mx-1 text-yellow-500" [(ngModel)]="color" value="orange">
+              <input type="radio" name="color" class="custom-radio  mx-1 text-yellow-200" [(ngModel)]="color" value="yellow">
+              <input type="radio" name="color" class="custom-radio  mx-1 text-green-500" [(ngModel)]="color" value="green">
+              <input type="radio" name="color" class="custom-radio  mx-1 text-blue-300" [(ngModel)]="color" value="turquoise">
+              <input type="radio" name="color" class="custom-radio  mx-1 text-blue-500" [(ngModel)]="color" value="blue">
+              <input type="radio" name="color" class="custom-radio  mx-1 text-pink-600" [(ngModel)]="color" value="lilac">
+              <input type="radio" name="color" class="custom-radio  mx-1 text-pink-300" [(ngModel)]="color"  value="pink">
+              <input type="radio" name="color" class="custom-radio  mx-1 text-gray-400" [(ngModel)]="color" value="gray">
+              <input type="radio" name="color" class="custom-radio  mx-1 text-black" [(ngModel)]="color" value="black">
+              <input type="radio" name="color" class="custom-radio  mx-1 text-yellow-800" [(ngModel)]="color" value="brown">
+            </p>
+          </div>
+
+        </div>
+
+        <div class="md:w-1/2 flex flex-col items-start">
+          <h5 class="mb-2 text-md md:text-xl font-semibold">Category</h5>
+          <div class="relative w-full" (click)="selectCategory()">
+            <input type="text" class="text-black w-full py-1 rounded-md cursor-pointer capitalize" [(ngModel)]="selectedCategory">
+            <fa-icon [icon]="faChevronDown" class="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500 pointer-events-none"></fa-icon>
+          </div>
+
+          <div *ngIf="choose" class="fixed inset-0 bg-gray-600 bg-opacity-75 z-10 flex justify-center items-center ">
+            <div class=" bg-white text-black rounded-2xl flex flex-col w-96 h-auto py-2">
+              <div class="  w-full flex justify-between p-4 border-b-2 border-gray-200   ">
+                <h5 class="font-semibold text-xl">All</h5>
+                <input type="radio" name="all" class="w-5 h-5 border-full border-2 border-gray-100"  [(ngModel)] ="selectedCategory" (change)="onRadioChange()"  value="all">
+              </div>
+              <div class="  w-full flex justify-between p-4 border-b-2 border-gray-200   ">
+                <h5 class="font-semibold text-xl">Animals</h5>
+                <input type="radio" name="all" class="w-5 h-5 px-2 border-full border-2 border-gray-100"  [(ngModel)] ="selectedCategory" (change)="onRadioChange()" value="animals">
+              </div>
+              <div class="  w-full flex justify-between p-4 border-b-2 border-gray-200   ">
+                <h5 class="font-semibold text-xl">Fashion</h5>
+                <input type="radio" name="all" class="w-5 h-5 border-full border-2 border-gray-100"  [(ngModel)] ="selectedCategory" (change)="onRadioChange()"  value="fashion">
+              </div>
+              <div class="  w-full flex justify-between p-4 border-b-2 border-gray-200   ">
+                <h5 class="font-semibold text-xl">Backgrounds</h5>
+                <input type="radio" name="all" class="w-5 h-5 border-full border-2 border-gray-100"  [(ngModel)] ="selectedCategory" (change)="onRadioChange()"  value="backgrounds">
+              </div>
+              <div class="  w-full flex justify-between p-4 border-b-2 border-gray-200   ">
+                <h5 class="font-semibold text-xl">Nature</h5>
+                <input type="radio" name="all" class="w-5 h-5 border-full border-2 border-gray-100"  [(ngModel)] ="selectedCategory" (change)="onRadioChange()"  value="nature">
+              </div>
+              <div class="  w-full flex justify-between p-4 border-b-2 border-gray-200   ">
+                <h5 class="font-semibold text-xl">Science</h5>
+                <input
+                 type="radio" name="all" class="w-5 h-5 border-full border-2 border-gray-100"  [(ngModel)] ="selectedCategory" (change)="onRadioChange()"  value="science">
+              </div>
+              <div class="  w-full flex justify-between p-4 border-b-2 border-gray-200 ">
+                <h5 class="font-semibold text-xl">Education</h5>
+                <input type="radio" name="all" class="w-5 h-5 border-full border-2 border-gray-100"  [(ngModel)] ="selectedCategory" (change)="onRadioChange()"  value="education">
+              </div>
+              <div class="  w-full flex justify-between p-4 border-b-2 border-gray-200   ">
+                <h5 class="font-semibold text-xl">Feelings</h5>
+                <input type="radio" name="all" class="w-5 h-5 border-full border-2 border-gray-100"  [(ngModel)] ="selectedCategory" (change)="onRadioChange()"  value="feelings">
+              </div>
+              <div class="  w-full flex justify-between p-4 border-b-2 border-gray-200   ">
+                <h5 class="font-semibold text-xl">Health</h5>
+                <input type="radio" name="all" class="w-5 h-5 border-full border-2 border-gray-100"  [(ngModel)] ="selectedCategory" (change)="onRadioChange()"  value="health">
+              </div>
+              <div class="  w-full flex justify-between p-4 border-b-2 border-gray-200 ">
+                <h5 class="font-semibold text-xl">People</h5>
+                <input type="radio" name="all" class="w-5 h-5 border-full border-2 border-gray-100"  [(ngModel)] ="selectedCategory" (change)="onRadioChange()"  value="people">
+              </div>
+
+              <div class="  w-full flex justify-between p-4">
+                <h5 class="font-semibold text-xl">Music</h5>
+                <input type="radio" name="all" class="w-5 h-5 border-full border-2 border-gray-100"  [(ngModel)] ="selectedCategory" (change)="onRadioChange()"  value="music">
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="w-full flex flex-col md:flex-row ">
+  <div class="w-full py-10 md:w-2/3">
+    <app-image-content [images]="images"></app-image-content>
+  </div>
+
+  <div class="w-full py-10 md:w-2/6">
+      <h3 class="font-semibold text-xl ml-5">Most Popular</h3>
+      <app-popular></app-popular>
+  </div>
+
+</div>
+
+

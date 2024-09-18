@@ -1,0 +1,33 @@
+
+<div class="fixed inset-0 bg-gray-600 bg-opacity-75 flex justify-center items-center z-50">
+  <div class="bg-white rounded-xl w-96 h-auto ">
+
+    <div class="flex justify-between p-6 items-center mb-2 ">
+      <div class="flex items-center">
+        <img [src]="image?.userImageURL" class="w-10 h-10 rounded-full mr-2" alt="userImage">
+        <h3 class="text-xl font-semibold">{{image?.user}}</h3>
+      </div>
+      <fa-icon [icon]="faXmark" class="text-2xl text-black" (click)="closeModal()"></fa-icon>
+    </div>
+
+    <div [ngClass]="{'bg-gray-600':isShow, 'bg-opacity-75':isShow}" class=" relative flex justify-center items-center h-full">
+      <img (click)="onClickImage()"  [src]="image?.webformatURL" alt="selected image" class="w-full h-auto rounded-b-xl" >
+
+      <div *ngIf="isShow" class="z-5 absolute top-1/2 transform -translate-y-1/2  w-10/12">
+          <div class="w-full flex justify-around text-black mb-2">
+            <button class="bg-white rounded-lg px-2 py-1 hover:ring-4 ring-gray-300 ring-opacity-50" ><a [href]="image.pageURL" target="_blank"><fa-icon [icon]="faLink" class="mr-1"></fa-icon>Visit Profile</a></button>
+            <button class="bg-white rounded-lg px-2 py-1 hover:ring-4 ring-gray-300 ring-opacity-50 "><a [href]="image.largeImageURL" download><fa-icon [icon]="faDownload" class="mr-1"></fa-icon>Download</a></button>
+          </div>
+
+          <div class=" w-full text-white py-1 flex justify-around items-center bg-gray-900 bg-opacity-75 rounded-xl">
+            <p><fa-icon [icon]="faHeart" class="text-red-500 mr-1"></fa-icon>{{image.likes}}</p>
+            <p><fa-icon [icon]="faTag" class="mr-1"></fa-icon>{{image.tags}}</p>
+          </div>
+      </div>
+    </div>
+
+
+
+  </div>
+
+</div>

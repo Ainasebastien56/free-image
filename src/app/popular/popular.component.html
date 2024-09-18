@@ -1,0 +1,16 @@
+<div class="w-full flex flex-col items-center">
+
+    <div *ngFor="let image of images" class=" w-full flex items-center px-10  py-5 shadow-xl rounded-b-xl border-b-2 border-blue-600 hover:scale-110 ">
+        <img [src]="image.webformatURL" class="rounded-full h-20 w-20 mr-5" alt="image" (click)="onSelectImage(image)">
+        <div>
+          <h5 class="text-lg font-semibold">{{image.user}}</h5>
+          <ul class="text-black">
+            <li><fa-icon [icon]="faHeart" class="text-red-500"></fa-icon> {{image.likes}}</li>
+            <li><fa-icon [icon]="faEye" class="text-blue-500"></fa-icon> {{image.views}}</li>
+            <li><fa-icon [icon]="faDownload" class="text-black"></fa-icon> {{image.downloads}}</li>
+          </ul>
+        </div>
+    </div>
+
+    <app-modal *ngIf="selectedImage" [image]="selectedImage" (close)="closeModal()"></app-modal>
+</div>

@@ -1,0 +1,13 @@
+.custom-radio{
+  appearance: none;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  border: 2px solid currentColor;
+  outline: none;
+  transition: background-color 0.2s ease;
+}
+
+.custom-radio:checked{
+  background-color: currentColor;
+}

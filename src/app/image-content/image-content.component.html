@@ -1,0 +1,11 @@
+<div class=" relative w-full md:w-11/12 flex flex-col md:flex-row justify-around flex-wrap">
+    <div  class="w-full relative px-5 md:w-2/5 py-5" *ngFor="let image of images" (click)="onSelectImage(image)">
+        <img class="w-full" [src]="image?.webformatURL" alt="">
+        <p class="bg-gray-900 bg-opacity-50 rounded-xl px-3 py-1 absolute top-10 right-10 ">
+          <fa-icon class="text-red-500" [icon]="faHeart"></fa-icon>
+          <span class="font-semibold text-white ml-1">{{image.likes}}</span>
+        </p>
+    </div>
+
+    <app-modal *ngIf="selectedImage" [image]="selectedImage"(close)="closeModal()"></app-modal>
+</div>
