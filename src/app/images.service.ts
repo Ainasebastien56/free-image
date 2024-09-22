@@ -15,12 +15,12 @@ export class ImagesService {
   constructor(private httpClient : HttpClient) { }
 
 
-  getImages(order='latest', page= 12):Observable<any>{
-    return this.httpClient.get(`${this.apiUrl}/?key=${this.apiKey}&order=${order}&per_page=${page}`)
+  getImages(order='latest', content=10 ):Observable<any>{
+    return this.httpClient.get(`${this.apiUrl}/?key=${this.apiKey}&order=${order}&per_page=${content}`)
   }
 
-  getSearchImages(searchQuery:string, color='transparent', category:string, orientation:string):Observable<any>{
-    return this.httpClient.get<any>(`${this.apiUrl}/?key=${this.apiKey}&q=${encodeURIComponent(searchQuery)}&colors=${color}&category=${category}&orientation=${orientation}&image_type=photo`)
+  getSearchImages(searchQuery:string, page:number=1, per_page:number=10, color='transparent', category:string, orientation:string):Observable<any>{
+    return this.httpClient.get<any>(`${this.apiUrl}/?key=${this.apiKey}&q=${encodeURIComponent(searchQuery)}&colors=${color}&category=${category}&orientation=${orientation}&image_type=photo&page=${page}&per_page=${per_page}`)
   }
 
 

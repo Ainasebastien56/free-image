@@ -116,7 +116,11 @@
 
 <div class="w-full flex flex-col md:flex-row ">
   <div class="w-full py-10 md:w-2/3">
-    <app-image-content [images]="images"></app-image-content>
+    <app-image-content [isLoading]="isLoading" [images]="images"></app-image-content>
+    <div [ngClass]="{'hidden': !showBoutton, 'flex':showBoutton}" class="w-full py-10 justify-center">
+      <button class="px-5 py-1 mx-2 border-2 border-solid border-black rounded-md" (click)="prevPage()"> <fa-icon [icon]="faAngleDoubleLeft"></fa-icon> Prev</button>
+      <button class="px-5 py-1 mx-2 border-2 border-solid border-black rounded-md" (click)="nextPage()">Next <fa-icon [icon]="faAngleDoubleRight"></fa-icon> </button>
+    </div>
   </div>
 
   <div class="w-full py-10 md:w-2/6">

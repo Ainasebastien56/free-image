@@ -11,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { ImageContentComponent } from './image-content/image-content.component';
 import { PopularComponent } from './popular/popular.component';
 import { ModalComponent } from './modal/modal.component';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ModalComponent } from './modal/modal.component';
     HomeComponent,
     ImageContentComponent,
     PopularComponent,
-    ModalComponent
+    ModalComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,

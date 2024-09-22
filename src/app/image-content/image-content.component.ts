@@ -15,6 +15,7 @@ export class ImageContentComponent implements OnInit {
   selectedImage! : any;
 
   @Input() images: any;
+  @Input() isLoading:any;
 
   constructor(private imagesService : ImagesService){}
 

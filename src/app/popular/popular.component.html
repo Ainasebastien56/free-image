@@ -1,6 +1,6 @@
 <div class="w-full flex flex-col items-center">
 
-    <div *ngFor="let image of images" class=" w-full flex items-center px-10  py-5 shadow-xl rounded-b-xl border-b-2 border-blue-600 hover:scale-110 ">
+    <div *ngFor="let image of images" class=" w-full flex items-center px-10  py-5 shadow-xl rounded-b-xl border-b-2 border-gray-600 hover:scale-110 ">
         <img [src]="image.webformatURL" class="rounded-full h-20 w-20 mr-5" alt="image" (click)="onSelectImage(image)">
         <div>
           <h5 class="text-lg font-semibold">{{image.user}}</h5>
