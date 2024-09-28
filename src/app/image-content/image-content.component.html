@@ -1,4 +1,4 @@
-<div class="w-full md:w-11/12 flex flex-col items-center bg">
+<div class="w-full md:w-11/12 flex flex-col items-center bg px-5">
     <app-spinner *ngIf="isLoading"></app-spinner>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
       <div  class="relative" *ngFor="let image of images" (click)="onSelectImage(image)">
