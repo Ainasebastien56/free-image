@@ -12,6 +12,7 @@ import { ImageContentComponent } from './image-content/image-content.component';
 import { PopularComponent } from './popular/popular.component';
 import { ModalComponent } from './modal/modal.component';
 import { SpinnerComponent } from './spinner/spinner.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { SpinnerComponent } from './spinner/spinner.component';
     ImageContentComponent,
     PopularComponent,
     ModalComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

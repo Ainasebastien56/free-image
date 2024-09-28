@@ -1,4 +1,4 @@
-<div class= " w-screen h-auto py-20  bg-cover bg-[url('assets/images/night.jpg')] flex flex-col  items-center justify-center">
+<div class= " w-screen h-auto py-20 mt-10 bg-cover bg-[url('assets/images/night.jpg')] flex flex-col  items-center justify-center">
   <h3 class="text-white mb-10 font-semibold text-xl w-6/12 md:w-auto md:text-2xl">
     Gorgeous Free Images and Royalty-Free Photos
   </h3>
@@ -6,7 +6,7 @@
   <div class="text-white w-11/12 md:w-6/12 ">
     <div class="w-full flex justify-between">
       <input placeholder="Search" type="search" class="text-black p-2 ring-2 md:ring-4 ring-blue-100 w-10/12  rounded-tl-md rounded-bl-md" [(ngModel)]="searchTerm">
-      <button  class=" ring-2 md:ring-4 ring-indigo-300 bg-blue-500 py-2 px-3" (click)="onSerch()">Go</button>
+      <button  class=" ring-2 md:ring-4 ring-indigo-300 bg-blue-500 py-2 px-3" (click)="onSearch()">Go</button>
       <button (click)="openMore()" class=" border-solid border-white border-2 py-2 px-3 text-sm ml-2"><fa-icon class="pointer-events-none" [icon]="faPlus"></fa-icon></button>
     </div>
 
@@ -15,35 +15,35 @@
           <div>
             <h5 class="mb-2 text-md md:text-xl font-semibold">Orientation</h5>
             <p class="flex items-center mb-2">
-              <input type="radio"  class="w-5 h-5 mr-1"  checked  [(ngModel)]="orientation" value="all">
+              <input type="radio"  class="w-5 h-5 mr-1"  checked  [(ngModel)]="orientation" name="all_orientation" value="all" (change)="selectOrientation()">
               <label>All</label>
             </p>
 
             <p class="flex items-center mb-2">
-              <input type="radio" name="horizontal" class="w-5 h-5 mr-1" [(ngModel)]="orientation" value="horizontal">
+              <input type="radio" name="horizontal" class="w-5 h-5 mr-1" [(ngModel)]="orientation" value="horizontal" (change)="selectOrientation()">
               <label>Horizontal</label>
             </p>
 
             <p class="flex items-center mb-2">
-              <input type="radio" name="vertical" class="w-5 h-5 mr-1" [(ngModel)]="orientation" value="vertical">
+              <input type="radio" name="vertical" class="w-5 h-5 mr-1" [(ngModel)]="orientation" value="vertical" (change)="selectOrientation()">
               <label >Vertical</label>
             </p>
           </div>
           <div>
             <h5 class="mb-2 text-md md:text-xl font-semibold">Color</h5>
             <p class="w-3/5">
-              <input type="radio" name="color" checked class="custom-radio  mx-1 text-white" [(ngModel)]="color" value="white">
-              <input type="radio" name="color" class="custom-radio  mx-1 text-red-600" [(ngModel)]="color" value="red" >
-              <input type="radio" name="color" class="custom-radio  mx-1 text-yellow-500" [(ngModel)]="color" value="orange">
-              <input type="radio" name="color" class="custom-radio  mx-1 text-yellow-200" [(ngModel)]="color" value="yellow">
-              <input type="radio" name="color" class="custom-radio  mx-1 text-green-500" [(ngModel)]="color" value="green">
-              <input type="radio" name="color" class="custom-radio  mx-1 text-blue-300" [(ngModel)]="color" value="turquoise">
-              <input type="radio" name="color" class="custom-radio  mx-1 text-blue-500" [(ngModel)]="color" value="blue">
-              <input type="radio" name="color" class="custom-radio  mx-1 text-pink-600" [(ngModel)]="color" value="lilac">
-              <input type="radio" name="color" class="custom-radio  mx-1 text-pink-300" [(ngModel)]="color"  value="pink">
-              <input type="radio" name="color" class="custom-radio  mx-1 text-gray-400" [(ngModel)]="color" value="gray">
-              <input type="radio" name="color" class="custom-radio  mx-1 text-black" [(ngModel)]="color" value="black">
-              <input type="radio" name="color" class="custom-radio  mx-1 text-yellow-800" [(ngModel)]="color" value="brown">
+              <input type="radio" name="color" checked class="custom-radio  mx-1 text-white" [(ngModel)]="color" (change)="selectColor()" value="white">
+              <input type="radio" name="color" class="custom-radio  mx-1 text-red-600" [(ngModel)]="color" value="red" (change)="selectColor()" >
+              <input type="radio" name="color" class="custom-radio  mx-1 text-yellow-500" [(ngModel)]="color" value="orange" (change)="selectColor()">
+              <input type="radio" name="color" class="custom-radio  mx-1 text-yellow-200" [(ngModel)]="color" value="yellow" (change)="selectColor()">
+              <input type="radio" name="color" class="custom-radio  mx-1 text-green-500" [(ngModel)]="color" value="green" (change)="selectColor()">
+              <input type="radio" name="color" class="custom-radio  mx-1 text-blue-300" [(ngModel)]="color" value="turquoise" (change)="selectColor()">
+              <input type="radio" name="color" class="custom-radio  mx-1 text-blue-500" [(ngModel)]="color" value="blue" (change)="selectColor()">
+              <input type="radio" name="color" class="custom-radio  mx-1 text-pink-600" [(ngModel)]="color" value="lilac" (change)="selectColor()">
+              <input type="radio" name="color" class="custom-radio  mx-1 text-pink-300" [(ngModel)]="color"  value="pink" (change)="selectColor()">
+              <input type="radio" name="color" class="custom-radio  mx-1 text-gray-400" [(ngModel)]="color" value="gray" (change)="selectColor()">
+              <input type="radio" name="color" class="custom-radio  mx-1 text-black" [(ngModel)]="color" value="black" (change)="selectColor()">
+              <input type="radio" name="color" class="custom-radio  mx-1 text-yellow-800" [(ngModel)]="color" value="brown" (change)="selectColor()">
             </p>
           </div>
 
@@ -52,57 +52,57 @@
         <div class="md:w-1/2 flex flex-col items-start">
           <h5 class="mb-2 text-md md:text-xl font-semibold">Category</h5>
           <div class="relative w-full" (click)="selectCategory()">
-            <input type="text" class="text-black w-full py-1 rounded-md cursor-pointer capitalize" [(ngModel)]="selectedCategory">
+            <input type="text" class="text-black w-full pl-2 py-1 rounded-md cursor-pointer capitalize" [(ngModel)]="selectedCategory">
             <fa-icon [icon]="faChevronDown" class="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500 pointer-events-none"></fa-icon>
           </div>
 
-          <div *ngIf="choose" class="fixed inset-0 bg-gray-600 bg-opacity-75 z-10 flex justify-center items-center ">
+          <div *ngIf="choose" class="fixed inset-0 bg-gray-600 bg-opacity-75 z-50 flex justify-center items-center ">
             <div class=" bg-white text-black rounded-2xl flex flex-col w-96 h-auto py-2">
               <div class="  w-full flex justify-between p-4 border-b-2 border-gray-200   ">
                 <h5 class="font-semibold text-xl">All</h5>
-                <input type="radio" name="all" class="w-5 h-5 border-full border-2 border-gray-100"  [(ngModel)] ="selectedCategory" (change)="onRadioChange()"  value="all">
+                <input checked type="radio" class="w-5 h-5 border-full border-2 border-gray-100" name="all" [(ngModel)] ="selectedCategory" (change)="onRadioChange()"  value="all">
               </div>
               <div class="  w-full flex justify-between p-4 border-b-2 border-gray-200   ">
                 <h5 class="font-semibold text-xl">Animals</h5>
-                <input type="radio" name="all" class="w-5 h-5 px-2 border-full border-2 border-gray-100"  [(ngModel)] ="selectedCategory" (change)="onRadioChange()" value="animals">
+                <input type="radio"  class="w-5 h-5 px-2 border-full border-2 border-gray-100"  [(ngModel)] ="selectedCategory" (change)="onRadioChange()" value="animals">
               </div>
               <div class="  w-full flex justify-between p-4 border-b-2 border-gray-200   ">
                 <h5 class="font-semibold text-xl">Fashion</h5>
-                <input type="radio" name="all" class="w-5 h-5 border-full border-2 border-gray-100"  [(ngModel)] ="selectedCategory" (change)="onRadioChange()"  value="fashion">
+                <input type="radio" class="w-5 h-5 border-full border-2 border-gray-100"  [(ngModel)] ="selectedCategory" (change)="onRadioChange()"  value="fashion">
               </div>
               <div class="  w-full flex justify-between p-4 border-b-2 border-gray-200   ">
                 <h5 class="font-semibold text-xl">Backgrounds</h5>
-                <input type="radio" name="all" class="w-5 h-5 border-full border-2 border-gray-100"  [(ngModel)] ="selectedCategory" (change)="onRadioChange()"  value="backgrounds">
+                <input type="radio"  class="w-5 h-5 border-full border-2 border-gray-100"  [(ngModel)] ="selectedCategory" (change)="onRadioChange()"  value="backgrounds">
               </div>
               <div class="  w-full flex justify-between p-4 border-b-2 border-gray-200   ">
                 <h5 class="font-semibold text-xl">Nature</h5>
-                <input type="radio" name="all" class="w-5 h-5 border-full border-2 border-gray-100"  [(ngModel)] ="selectedCategory" (change)="onRadioChange()"  value="nature">
+                <input type="radio" class="w-5 h-5 border-full border-2 border-gray-100"  [(ngModel)] ="selectedCategory" (change)="onRadioChange()"  value="nature">
               </div>
               <div class="  w-full flex justify-between p-4 border-b-2 border-gray-200   ">
                 <h5 class="font-semibold text-xl">Science</h5>
                 <input
-                 type="radio" name="all" class="w-5 h-5 border-full border-2 border-gray-100"  [(ngModel)] ="selectedCategory" (change)="onRadioChange()"  value="science">
+                 type="radio" class="w-5 h-5 border-full border-2 border-gray-100"  [(ngModel)] ="selectedCategory" (change)="onRadioChange()"  value="science">
               </div>
               <div class="  w-full flex justify-between p-4 border-b-2 border-gray-200 ">
                 <h5 class="font-semibold text-xl">Education</h5>
-                <input type="radio" name="all" class="w-5 h-5 border-full border-2 border-gray-100"  [(ngModel)] ="selectedCategory" (change)="onRadioChange()"  value="education">
+                <input type="radio" class="w-5 h-5 border-full border-2 border-gray-100"  [(ngModel)] ="selectedCategory" (change)="onRadioChange()"  value="education">
               </div>
               <div class="  w-full flex justify-between p-4 border-b-2 border-gray-200   ">
                 <h5 class="font-semibold text-xl">Feelings</h5>
-                <input type="radio" name="all" class="w-5 h-5 border-full border-2 border-gray-100"  [(ngModel)] ="selectedCategory" (change)="onRadioChange()"  value="feelings">
+                <input type="radio" class="w-5 h-5 border-full border-2 border-gray-100"  [(ngModel)] ="selectedCategory" (change)="onRadioChange()"  value="feelings">
               </div>
               <div class="  w-full flex justify-between p-4 border-b-2 border-gray-200   ">
                 <h5 class="font-semibold text-xl">Health</h5>
-                <input type="radio" name="all" class="w-5 h-5 border-full border-2 border-gray-100"  [(ngModel)] ="selectedCategory" (change)="onRadioChange()"  value="health">
+                <input type="radio" class="w-5 h-5 border-full border-2 border-gray-100"  [(ngModel)] ="selectedCategory" (change)="onRadioChange()"  value="health">
               </div>
-              <div class="  w-full flex justify-between p-4 border-b-2 border-gray-200 ">
+              <div class="w-full flex justify-between p-4 border-b-2 border-gray-200 ">
                 <h5 class="font-semibold text-xl">People</h5>
-                <input type="radio" name="all" class="w-5 h-5 border-full border-2 border-gray-100"  [(ngModel)] ="selectedCategory" (change)="onRadioChange()"  value="people">
+                <input type="radio" class="w-5 h-5 border-full border-2 border-gray-100"  [(ngModel)] ="selectedCategory" (change)="onRadioChange()"  value="people">
               </div>
 
               <div class="  w-full flex justify-between p-4">
                 <h5 class="font-semibold text-xl">Music</h5>
-                <input type="radio" name="all" class="w-5 h-5 border-full border-2 border-gray-100"  [(ngModel)] ="selectedCategory" (change)="onRadioChange()"  value="music">
+                <input type="radio" class="w-5 h-5 border-full border-2 border-gray-100"  [(ngModel)] ="selectedCategory" (change)="onRadioChange()"  value="music">
               </div>
             </div>
 
@@ -114,8 +114,8 @@
   </div>
 </div>
 
-<div class="w-full flex items-center justify-center">
-  <div class="w-full md:w-10/12 flex flex-col md:flex-row items-center">
+<div class="w-full flex  justify-center">
+  <div class="w-full md:w-11/12 flex flex-col md:flex-row">
     <div class="w-full flex flex-col py-10 md:w-2/3">
       <app-image-content [isLoading]="isLoading" [images]="images"></app-image-content>
       <div [ngClass]="{'hidden': !showBoutton, 'flex':showBoutton}" class="w-full py-10 justify-center">
@@ -124,9 +124,56 @@
       </div>
     </div>
 
-    <div class="w-full py-10 md:w-2/6">
+    <div class="w-full flex flex-col py-10 md:w-2/6">
         <h3 class="font-semibold text-xl ml-5">Most Popular</h3>
         <app-popular></app-popular>
+        <div class="flex flex-col w-full px-5 mt-10">
+            <h3 class="font-semibold text-xl mb-3">More Filters</h3>
+            <button class="text-white text-md bg-red-500 px-2 w-20 py-1 shadow-lg rounded hover:ring-4 ring-red-100 " (click)="toggleFilter()">Filter <fa-icon [icon]="faFilter"></fa-icon></button>
+        </div>
+    </div>
+
+    <div
+     class="fixed top-0 right-0 w-full md:w-2/6 bg-gray-100 rounded-tl-3xl h-full shadow-lg z-50 transform transition-transform duration-500 ease-in-out"
+     [ngClass]="{'translate-x-0': isFilterVisible, 'translate-x-full':!isFilterVisible}">
+
+      <div class="flex flex-col w-full items-center">
+        <div class="w-full p-5 flex justify-between text-2xl font-semibold items-center">
+            <h5 >Apply a filter</h5>
+             <button (click)="closeFilter()" class="text-red-500 text-3xl"> <fa-icon [icon]="faSquareXmark" ></fa-icon></button>
+        </div>
+
+        <div class="mt-10 flex flex-col w-11/12">
+            <h5 class="mb-5 text-xl">Type of image</h5>
+            <div class="relative w-3/5 md:w-1/2" (click)="selectTypeImage()" >
+              <input type="text" [(ngModel)]="image_type" class=" px-2 w-full py-1 rounded-md cursor-pointer capitalize bg-none border-solid border-2 border-gray-300">
+              <fa-icon [icon]="faChevronDown" class="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500 pointer-events-none"></fa-icon>
+            </div>
+        </div>
+
+        <div class="w-full flex items-center pt-5 justify-center">
+          <div class="w-11/12 bg-white shadow-lg p-4 rounded-lg" *ngIf="select_type">
+            <div class="flex justify-between text-lg border-b-2 border-gray-100 py-2">
+              <h5 class="font-semibold">All</h5>
+                <input class="w-5 h-5 border-full border-2 border-gray-100" type="radio" name="all" id="all" value="all" [(ngModel)]="image_type" (change)="onTypeChange()" checked>
+            </div>
+            <div class="flex justify-between text-lg border-b-2 border-gray-100 py-2">
+              <h5 class="font-semibold">Photo</h5>
+              <input class="w-5 h-5 border-full border-2 border-gray-100" type="radio" name="photo" id="photo" value="photo" [(ngModel)]="image_type" (change)="onTypeChange()">
+            </div>
+            <div class="flex justify-between text-lg border-b-2 border-gray-100 py-2">
+              <h5 class="font-semibold">Illustration</h5>
+              <input class="w-5 h-5 border-full border-2 border-gray-100" type="radio" name="illustration" id="illustration" value="illustration" [(ngModel)]="image_type" (change)="onTypeChange()">
+            </div>
+
+              <div class="flex justify-between text-lg py-2">
+              <h5 class="font-semibold">Vector</h5>
+              <input class="w-5 h-5 border-full border-2 border-gray-100" type="radio" name="vector" id="vector" value="vector" [(ngModel)]="image_type" (change)="onTypeChange()" >
+              </div>
+        </div>
+        </div>
+
+      </div>
     </div>
   </div>
 

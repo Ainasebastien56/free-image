@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-navbar',
@@ -10,6 +10,7 @@ export class NavbarComponent {
 
   isOpenMenu : boolean = false;
   faBars = faBars;
+  faXmark = faXmark;
 
   toggleMenu(){
     this.isOpenMenu = !this.isOpenMenu;
